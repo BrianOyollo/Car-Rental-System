@@ -1,0 +1,11 @@
+{% extends 'adminDash.html' %}
+
+{% block dash-items %}
+    <div class=" bg-white" style="">
+    <form method="post" >
+        {% csrf_token %}
+        <p>Are you sure you want to delete this user ?</p>
+        <button class="btn btn-sm btn-danger mb-2" type="submit">Sure, Delete</button>  <button class="btn btn-sm btn-secondary mb-2"><a class="text-white" href="{% url 'customers' %}">Cancel</a> </button>
+    </form>
+     </div>
+{% endblock dash-items %}

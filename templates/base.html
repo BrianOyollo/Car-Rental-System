@@ -1,0 +1,242 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+
+    <title>Title</title>
+</head>
+<body>
+<div class="navigation">
+    <ul class="text-white pl-4 pr-4 pt-4 pb-4 clearfix">
+        <li><a class="text-danger" href="{% url 'home' %}"> <b>Rent-A-Ride</b></a></li>
+        <li><a href="{% url 'home' %}">Home</a> </li>
+        <li><a href="#">Booking</a> </li>
+        <li><a href="{% url 'fleet' %}">Fleet</a> </li>
+        <li><a href="#">Blog</a> </li>
+        <li><a href="{% url 'terms' %}">Terms</a> </li>
+        <li><a href="#">About Us</a> </li>
+        <li><a href="#">Contact Us</a> </li>
+        {% if user.is_authenticated %}
+            <li class="float-right"><a href="{% url 'logout' %}">Logout</a></li>
+            <li class="float-right"><a href="#">{{ user.username}}</a></li>
+        {% else %}
+            <li class="float-right"><a href="{% url 'login' %}">Login</a></li>
+            <li class="float-right"><a href="{% url 'register' %}">Register</a></li>
+        {% endif %}
+    </ul>
+</div>
+{% if messages %}
+            {% for message in messages %}
+                <div class="alert  alert-{{ message.tags }}" style="margin-right: 5%; margin-left: 5%">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+{% block main-content %}
+<div class="make-booking border-bottom">
+   <div class="" style="">
+       <img class="" src="/media/defaults/coupe2.jpg" style="margin-left:25%;width: 50%;">
+       <a href="#" class="btn btn-primary btn-lg mb-2 text-center" style="margin-left: 40%; margin-right: 40%; border-radius: 5px;">MAKE A BOOKING</a>
+   </div>
+</div>
+
+<div class="why-us pt-4 bg-light border-bottom">
+    <h3 class="text-center">Why Chose Us</h3>
+    <div class="d-flex flex-warp  bd-highlight mb-3">
+        <div class="p-2 bd-highlight">
+            <h4>Outstanding Services</h4>
+            <p>
+                Lorem ipsum dolor sit amet, adipiscing elit. Interdum et malesuada fames ac ante ipsum primis in
+                faucibus. Maecenas lobortis vestibulum ipsum vitae pellentesque.</h4>
+            </p>
+        </div>
+         <div class="p-2 bd-highlight">
+            <h4>Name for Quality Vehicles</h4>
+            <p>
+                Lorem ipsum dolor sit amet, adipiscing elit. Interdum et malesuada fames ac ante ipsum primis in
+                faucibus. Maecenas lobortis vestibulum ipsum vitae pellentesque.</h4>
+            </p>
+        </div>
+         <div class="p-2 bd-highlight">
+            <h4>24 Hours Support</h4>
+            <p>
+                Lorem ipsum dolor sit amet, adipiscing elit. Interdum et malesuada fames ac ante ipsum primis in
+                faucibus. Maecenas lobortis vestibulum ipsum vitae pellentesque.</h4>
+            </p>
+        </div>
+    </div>
+</div>
+<div class="vehicle-categories pt-4 mb-2">
+    <h4 class="text-center">Vehicle Categories</h4>
+
+    <div class="d-flex flex-wrap border-bottom  " >
+        <div class="card car-card border-light" style="width: 16rem;height: 12rem; margin:3px">
+           <a href="#">
+              <img src="/media/defaults/sedan1.jpg" class="card-img-top p-1" alt="...">
+           </a>
+            <div class="text-center">
+                <p class="card-text">Sedan</p>
+            </div>
+        </div>
+        <div class="card car-card border-light" style="width: 16rem;height: 12rem; margin:3px">
+           <a href="#">
+              <img src="/media/defaults/coupe2.jpg" class="card-img-top p-1" alt="...">
+           </a>
+             <div class="text-center">
+                <p class="card-text">Coupe</p>
+            </div>
+        </div>
+        <div class="card car-card border-light" style="width: 16rem;height: 12rem; margin:3px">
+           <a href="#">
+              <img src="/media/defaults/suv4.jpg" class="card-img-top p-1" alt="...">
+           </a>
+             <div class="text-center">
+                <p class="card-text">SUV</p>
+            </div>
+        </div>
+        <div class="card car-card border-light" style="width: 16rem;height: 12rem; margin:3px">
+           <a href="#">
+              <img src="/media/defaults/convertible1.jpg" class="card-img-top p-1" alt="...">
+           </a>
+             <div class="text-center">
+                <p class="card-text">Convertible</p>
+            </div>
+        </div>
+        <div class="card car-card border-light" style="width: 16rem;height: 12rem; margin:3px">
+           <a href="#">
+              <img src="/media/defaults/hatchback1.jpg" class="card-img-top p-1" alt="...">
+           </a>
+             <div class="text-center">
+                <p class="card-text">Hatchback</p>
+            </div>
+        </div>
+        <div class="card car-card border border-light" style="width: 16rem;height: 12rem; margin:3px">
+           <a href="#">
+              <img src="/media/defaults/sports1.jpg" class="card-img-top p-1" alt="...">
+           </a>
+             <div class="text-center">
+                <p class="card-text">Sports Car</p>
+            </div>
+        </div>
+        <div class="card car-card border-light" style="width: 16rem;height: 12rem; margin:3px">
+           <a href="#">
+              <img src="/media/defaults/swagon1.jpg" class="card-img-top p-1" alt="...">
+           </a>
+             <div class="text-center">
+                <p class="card-text">Station Wagon</p>
+            </div>
+        </div>
+        <div class="card car-card border-light" style="width: 16rem;height: 12rem; margin:3px">
+           <a href="#">
+              <img src="/media/defaults/van.jpg" class="card-img-top p-1" alt="...">
+           </a>
+             <div class="text-center">
+                <p class="card-text">Van</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="partner-agencies pt-4 bg-light">
+     <h4 class="text-center">Partner Agencies</h4>
+
+    <div class="d-flex flex-wrap border-bottom " >
+        <div class="card car-card bg-light" style="width: 16rem;height: 9rem; margin:3px">
+           <a href="#">
+              <img src="/media/defaults/avis.png" class="card-img-top p-1" alt="...">
+           </a>
+        </div>
+        <div class="card car-card bg-light" style="width: 16rem;height: 9rem; margin:3px">
+           <a href="#">
+              <img src="/media/defaults/kingsman1.png" class="card-img-top p-1" alt="...">
+           </a>
+        </div>
+        <div class="card car-card bg-light" style="width: 16rem;height: 9rem; margin:3px">
+           <a href="#">
+              <img src="/media/defaults/europcar.png" class="card-img-top p-1" alt="...">
+           </a>
+        </div>
+        <div class="card car-card bg-light" style="width: 16rem;height: 9rem; margin:3px">
+           <a href="#">
+              <img src="/media/defaults/hertz.png" class="card-img-top p-1" alt="...">
+           </a>
+        </div>
+
+    </div>
+</div>
+{% endblock main-content %}
+{% block footer %}
+<div class="footer pt-4" style="background-color:#314e52;">
+     <div class="d-flex flex-wrap border-bottom pb-2 " >
+         <div class="card  text-white " style="width: 15rem;height: 10rem; margin-left: 5%;background-color: #314e52; border-color:#314e52 ">
+             <div class="card-body">
+                 <h5 class="card-title border-bottom">ABOUT RET-A-RIDE</h5>
+                 <p>Lorem ipsum dolor sit amet, adipiscing elit...</p>
+             </div>
+         </div>
+          <div class="card text-white " style="width: 15rem;height: 10rem; margin-left: 5%;background-color: #314e52; border-color:#314e52 ">
+             <div class="card-body">
+                 <h6 class="card-title border-bottom">CONTACT INFO</h6>
+                 <p class="text-sm" style="margin-bottom: -3px;">Email: rentaride@gmail.com</p>
+                 <p style="margin-bottom: -3px;">Tel: 070-000-000</p>
+                 <h6 style="margin-bottom: -3px;">Car Rental Office: (323) 938-5798</h6>
+             </div>
+         </div>
+          <div class="card  text-white " style="width: 15rem;height: 10rem; margin-left: 5%;background-color: #314e52; border-color:#314e52 ">
+             <div class="card-body">
+                 <h5 class="card-title border-bottom">SERVICE HOURS</h5>
+                 <p>Lorem ipsum dolor sit amet, adipiscing elit...</p>
+             </div>
+         </div>
+          <div class="card text-white " style="width: 15rem;height: 10rem; margin-left: 5%;background-color: #314e52; border-color:#314e52 ">
+             <div class="card-body">
+                 <h5 class="card-title border-bottom">Card title</h5>
+                <p>Lorem ipsum dolor sit amet, adipiscing elit...</p>
+             </div>
+         </div>
+
+    </div>
+    <div class="text-center text-white">
+        <small >Copyright © 2021. RENT-A-RIDE</small>
+    </div>
+    {% endblock footer %}
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>

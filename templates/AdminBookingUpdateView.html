@@ -1,0 +1,35 @@
+{% extends 'adminDash.html' %}
+{% load crispy_forms_tags %}
+
+{% block dash-items %}
+<div class=" bg-white" style="">
+    <h4 class="border-bottom text-left ">Booking Details: <small class="text-muted">Booking ID:{{ object.id }}</small></h4>
+    <form method="post">
+        {% csrf_token %}
+        <fieldset class="border mt-1 p-2 text-muted">
+            <h6 class="text-info">Booking Info.</h6>
+            <h6>Pickup Date: <span href="#" class="">{{ object.pickup_date }}</span></h6>
+            <h6>Return Date: <span class="">{{ object.return_date }}</span></h6>
+            <h6>Pickup Location: <span class="">{{ object.pickup_location }}</span></h6>
+            <h6>Return Location: <span class="">{{ object.dropoff_location }}</span></h6>
+        </fieldset>
+        <h5 class="ml-2">Pickup</h5>
+        <form method="POST">
+            <div class="pickup-form bg-white border  border-warning">
+                {% csrf_token %}
+                {{ form.errors }}
+                {{ form.pickup_location|as_crispy_field }}
+                {{ form.pickup_date|as_crispy_field }}
+            </div>
+            <h5 class="ml-2">Return</h5>
+            <div class="pickup-form bg-white border border-warning">
+                {{ form.dropoff_location|as_crispy_field }}
+                {{ form.return_date|as_crispy_field }}
+            </div>
+            <div class="find-car mt-2 ">
+                <button type="submit" class="btn-warning">Update</button>
+            </div>
+        </form>
+    </form>
+</div>
+{% endblock dash-items %}

@@ -1,0 +1,51 @@
+{% extends 'adminDash.html' %}
+
+{% block dash-items %}
+    <div class=" bg-white" style="">
+        <h6 class="float-left mt-3 ">Agencies | <a style="text-decoration: none;" class="text-success" href="{% url 'vehicle-registration' %}"
+                                                    title="Add New agency">+ <small>New Vehicle</small></a></h6>
+        <div class="input-group mt-2 mb-2 w-50 float-right" style="margin-right: -16%">
+            <form class="form-row float-right " action="{% url 'vehicle-search-results' %}" method="get">
+                {% csrf_token %}
+                <input type="search" name="q" class="form-control rounded w-75" placeholder="Search by username"
+                       aria-label="Search"
+                       aria-describedby="search-addon"/>
+                 <button type="" class="btn btn-sm btn-outline-dark ml-1">Search</button>
+            </form>
+            <small class="text-muted pt-1 mr-1">* Search by registration number, model, type or owner</small>
+
+        </div>
+
+
+
+
+        <table class="table table-sm table-hover">
+            <thead class="bg-light">
+            <tr>
+                <th scope="col" class="">Registration No.</th>
+                <th scope="col" class="">Model</th>
+                <th scope="col" class="">Type</th>
+                <th scope="col" class="">Owner</th>
+                <th scope="col" class="">Action</th>
+
+
+            </tr>
+            </thead>
+            <tbody class="bg-white">
+            {% for vehicle in vehicles %}
+                <tr class="bg-white">
+                    <td class="pr-4"><a href="{% url 'vehicle-profile' vehicle.RegNo %}">{{ vehicle.RegNo }}</a></td>
+                    <td class="pr-4">{{ vehicle.model }}</td>
+                    <td class="pr-4">{{ vehicle.type}}</td>
+                    <td class="pr-4">{{ vehicle.owner }}</td>
+                    <td class="pr-4"><a href="#" class="text-success" ><button class="btn btn-sm btn-info" style="padding-top:-3px;">Update</button></a> | <a href="{% url 'delete-vehicle' vehicle.RegNo %}"
+                                                                                                                                   class="text-danger"><button class="btn btn-sm btn-danger">Delete</button></a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+
+    </div>
+{% endblock dash-items %}

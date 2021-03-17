@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load mathfilters %}
+{% load humanize %}
+
+{% block main-content %}
+    {#  <div class="d-flex flex-wrap float-left">#}
+    {#        <div class="card m-2" style="width: 18rem;">#}
+    {#            <img class="card-img-top p-1" src="{{ object.best_image.url }}" alt="Card image cap">#}
+    {#            <a class="" href="#" style="margin-left: 70%"><small>more images</small></a>#}
+    {#            <div class="card-body">#}
+    {#                <h6 class="card-title" style="margin-top: -20px; margin-bottom: -2px">{{object.car.model}}</h6>#}
+    {#                <small class="text-muted">Pass: {{object.car.seats}} | Trans: {{object.car.transmission}} | </small>#}
+    {#                <p class="card-text text-danger">Ksh. {{object.car.price}}/per day</p>#}
+    {#                <a href="{% url 'booking' object.id %}" class="btn ml-5  btn-success text-center" style="padding-left: 50px; padding-right: 50px; margin-bottom: -15px;">Book</a>#}
+    {#            </div>#}
+    {#        </div>#}
+    {#  </div>#}
+    {#<div class="float-left bg-primary ml-2 mt-2">#}
+    {#    <div class="Details bg-secondary p-3 mb-2">#}
+    {#        <h5 class="border-bottom">Vehicle Details</h5>#}
+    {#        <h7>Model: {{object.car.model}}</h7></br>#}
+    {#        <h7>Seats:  {{object.car.seats}}</h7></br>#}
+    {#        <h7>Transmission: {{object.car.transmission}}</h7></br>#}
+    {#        <h7>Cost/day: Ksh. {{object.car.price}}</h7>#}
+    {#    </div>#}
+    {#    <div class="Details bg-secondary p-3 mb-2">#}
+    {#        <h5 class="border-bottom">Owner Details</h5>#}
+    {#        <h7>Agency: {{object.car.owner}}</h7></br>#}
+    {#        <h7>Location: {{object.car.owner.user.location}}</h7></br>#}
+    {#        <h7>Email: {{object.car.owner.user.email}}</h7>#}
+    {#    </div>#}
+    {##}
+    {#</div>#}
+    {##}
+    {##}
+    <div class="fleet ">
+        <h3>Our Fleet</h3>
+        <div class="d-flex flex-wrap flex-row border">
+            <div class="p-2">
+                <img src="{{ object.best_image.url }}" alt="Vehicle Picture" width="330" height="180">
+            </div>
+            <div class="p-2">
+                <div class="d-flex flex-row">
+                    <div class="p-2">
+                        <p style='margin-top:-10px;'>Category:<span class="text-danger"> {{ object.car.type|upper }}</span></p>
+                        <p style='margin-top:-10px;'>Model:<span class="text-success"> {{ object.car.model }}</span></p>
+                        <p style='margin-top:-10px;'>Seats: <span class="text-info"> {{ object.car.seats }}</span></p>
+                        <p style='margin-top:-10px;'>Transmission:<span class="text-info"> {{ object.car.transmission }}</span></p>
+                        <p style='margin-top:-10px;'>Charges: <span class="text-info"> Ksh.{{ object.car.price|intcomma }}</span>/day</p>
+                        <p style='margin-top:-10px;'>Model:<span class="text-success"> {{ object.car.owner }}</span></p>
+                    </div>
+                    <div class="p-2" style="margin-top: 7%;">
+                        <a class="btn btn-outline-secondary btn-warning mt-3 ml-4" href="{% url 'booking' object.id %}">Book
+                            Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock main-content %}
+
+{% block footer %}
+{% endblock %}

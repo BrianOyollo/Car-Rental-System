@@ -1,0 +1,37 @@
+{% extends 'adminDash.html' %}
+
+{% block dash-items %}
+<div class=" bg-white" style="">
+    <h4 class="border-bottom text-left ">Booking Details: <small class="text-muted">Booking ID:{{ object.id }}</small></h4>
+    <fieldset class="border p-2">
+        <h6 class="text-info border-bottom">Customer Info.</h6>
+        <h6>Username: <a href="#" class="" title="Click to view customer profile">{{ object.customer.username }}</a></h6>
+        <h6>Phone Number: <span class="">{{ object.tel_no}}</span></h6>
+        <h6>Email: <span class="">{{ object.customer.email }}</span></h6>
+        <h6>Address: <span class="">{{ object.customer.homeaddress }}</span></h6>
+    </fieldset>
+    <fieldset class="border mt-2 p-2">
+        <div class="d-flex flex-row bd-highlight mb-3">
+            <div class="p-2 bd-highlight">
+                <h6 class="text-info">Vehicle Info.</h6>
+                <h6>Registration Number: <a href="#" title="click to view vehicle profile"
+                                            class="">{{ object.car.RegNo }}</a></h6>
+                <h6>Vehicle Type: <span class="">{{ object.car.type }}</span></h6>
+                <h6>Transmission: <span class="">{{ object.car.transmission }}</span></h6>
+                <h6>Seats: <span class="">{{ object.car.seats }}</span></h6>
+            </div>
+            <div class="p-2 bd-highlight ml-3">  <img src="{{object.car.CarProfile.best_image.url}}" height="160" width="310"></div>
+        </div>
+    </fieldset>
+
+    <fieldset class="border mt-2 p-2">
+        <h6 class="text-info">Booking Info.</h6>
+        <h6>Pickup Date: <span href="#"  class="">{{ object.pickup_date }}</span></h6>
+        <h6>Return Date: <span class="">{{ object.return_date }}</span></h6>
+        <h6>Pickup Location: <span class="">{{ object.pickup_location }}</span></h6>
+        <h6>Return Location: <span class="">{{ object.dropoff_location }}</span></h6>
+    </fieldset>
+
+
+</div>
+{% endblock dash-items %}

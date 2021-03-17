@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block lhs-content %}
+{% endblock lhs-content %}
+
+{% block main-content %}
+<div class=" bg-white" style="margin-left: 25%; margin-right: 25%;">
+    <form method="POST" class="p-2 text-primary" >
+        <legend class="border-bottom bg-dark text-light text-center">Agency Registration</legend>
+        {% csrf_token %}
+        {{form|crispy}}
+        <button class="btn btn-primary btn-sm" type="submit">Register</button>
+        <small class="ml-3 text-secondary">Already have an account? <a href="{% url 'login' %}">Click here</a> to login</small>
+    </form>
+</div>
+
+{% endblock main-content %}

@@ -1,0 +1,52 @@
+{% extends 'adminDash.html' %}
+
+{% block dash-items %}
+    <div class=" bg-white" style="">
+        <h6 class="float-left mt-3 ">Agencies</h6>
+        <div class="input-group mt-2 mb-2 w-50 float-right" style="margin-right: -16%">
+            <form class="form-row float-right " action="{% url 'agency-search-results' %}" method="get">
+                {% csrf_token %}
+                <input type="search" name="q" class="form-control rounded w-75" placeholder="Search by username"
+                       aria-label="Search"
+                       aria-describedby="search-addon"/>
+                 <button type="" class="btn btn-sm btn-outline-dark ml-1">Search</button>
+            </form>
+
+        </div>
+
+
+        {% if query %}
+
+        <table class="table table-sm table-hover">
+            <thead class="bg-light">
+            <tr>
+                <th scope="col" class="">ID</th>
+                <th scope="col" class="">Username</th>
+                <th scope="col" class="">Email</th>
+                <th scope="col" class="">Phone Number</th>
+                <th scope="col" class="">Action</th>
+
+
+            </tr>
+            </thead>
+            <tbody class="bg-white">
+            {% for agency in query %}
+                <tr class="bg-white">
+                    <td class="pr-4">{{ agency.user.id }}</td>
+                    <td class="pr-4">{{ agency.user.username }}</td>
+                    <td class="pr-4">{{ agency.user.email }}</td>
+                    <td class="pr-4">{{ agency.phone_number }}</td>
+                    <td class="pr-4"><a href="#" class="text-success" ><button class="btn btn-sm btn-info" style="padding-top:-3px;">Update</button></a> | <a href="#"
+                                                                                                                                   class="text-danger"><button class="btn btn-sm btn-danger">Delete</button></a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+            <p>{{ error }}</p>
+    {% endif %}
+
+
+    </div>
+{% endblock dash-items %}

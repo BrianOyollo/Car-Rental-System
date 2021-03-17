@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+
+{% block lhs-content %}
+ <h4>xxxxx</h4>
+{% endblock lhs-content %}
+
+{% block main-content %}
+
+    <div class="fleet ">
+
+    <div class="d-flex flex-wrap">
+
+        {% for vehicle in fleet %}
+            <div class="card m-2" style="width: 18rem; height: 19rem;">
+                <img class="card-img-top p-1" src="{{ vehicle.best_image.url }}" alt="Card image cap">
+                <div class="card-body">
+                    <h6 class="card-title" style="margin-top: -20px; margin-bottom: -2px">{{ vehicle.car.model }}</h6>
+                    <small class="text-muted">Seats: {{ vehicle.car.seats }} | Trans: {{ vehicle.car.transmission }} |
+                        <span class="text-danger">Ksh.{{ vehicle.car.price }}/day</span> </small>
+                    <a href="{% url 'fleet-detail' vehicle.id %}" class="btn ml-5  btn-success text-center"
+                       style="padding-left: 50px; padding-right: 50px; margin-bottom: -10px; margin-top:5px">View</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <div>
+{#    {% for vehicle in fleet %}#}
+{#    <div class="d-flex flex-wrap flex-row border">#}
+{#        <div class="p-2">#}
+{#            <img src="{{ vehicle.best_image.url}}" alt="Vehicle Picture" width="330" height="180">#}
+{#        </div>#}
+{#        <div class="p-2">#}
+{#            <div class="d-flex flex-row">#}
+{#                <div class="p-2">#}
+{#                    <p style="margin-top: -5px">Category:<span class="text-danger"> {{ vehicle.car.type|upper }}</span></p>#}
+{#                    <p style="margin-top: -5px">Model:<span class="text-success"> {{ vehicle.car.model }}</span> </p>#}
+{#                    <p style="margin-top: -5px">Seats: <span class="text-info"> {{ vehicle.car.seats }}</span></p>#}
+{#                    <p style="margin-top: -5px">Transmission:<span class="text-info"> {{ vehicle.car.transmission }}</span></p>#}
+{#                    <p style="margin-top: -5px; margin-bottom: -5px">Charges: <span class="text-info"> Ksh.{{ vehicle.car.price }}</span>/day</p>#}
+{#                </div>#}
+{#                <div class="p-2" style="margin-top: 7%;">#}
+{#                    <a class="btn btn-outline-secondary btn-warning mt-3 ml-4" href="#">Book Now</a>#}
+{#                    <a class="btn btn-warning mt-3 ml-4" href="#">Book Now</a>#}
+{#                </div>#}
+{##}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{#     {% endfor %}#}
+{#    </div>#}
+
+
+{% endblock main-content %}
+
+{% block footer %}
+{% endblock %}

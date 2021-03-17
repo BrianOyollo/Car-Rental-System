@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block lhs-content %}
+{% endblock lhs-content %}
+{% block main-content %}
+    <h2 class="border-bottom text-center mb-3">Sign Up</h2>
+    <div class="register-customer pl-4 pr-4 pt-2 pb-3 border " style="background-color:#6683b9;margin-left:7%; float: left; width: 40%;border-radius: 20px;">
+       <h4 class="text-white">New Customer?</h4>
+        <p class="text-white">Create an account to take advantage of our features that make renting a car easy and personalized.</p>
+        <ul class="text-white">
+            <li>Personalized offers</li>
+            <li>Favourite cars</li>
+            <li>and more ...</li>
+        </ul>
+        <a  class="border text-white pt-2 pb-2 pl-3 pr-3" style="margin-left: 30%;border-radius: 10px; background-color: #ff8800;" href="{% url 'customer-signup' %}">Customer</a>
+    </div>
+
+    <div class="register-agency pl-4 pr-4 pt-2 pb-3 border " style="background-color:#374859; margin-right:8%; width:40%; float: right;border-radius: 20px">
+        <h4 class="text-white">New Agency?</h4>
+        <p class="text-white">Create an account to take advantage of our features that make renting a car easy and personalized.</p>
+        <ul class="text-white">
+            <li>Personalized offers</li>
+            <li>Favourite cars</li>
+            <li>and more ...</li>
+        </ul>
+        <a  class="border text-white pt-2 pb-2 pl-3 pr-3" style="margin-left: 30%;border-radius: 10px; background-color:limegreen;" href="{% url 'agency-signup' %}">Agency</a>
+    </div>
+
+{% endblock main-content %}
+
+
